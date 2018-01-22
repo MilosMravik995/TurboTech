@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TurboTech</title>
+		<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/app.css" rel="stylesheet">
+		<link rel="icon" href="images/icon.ico">
+	</head>
+	<body ng-app="myApp" ng-controller="MyCtrl as vm">
+	
+		<nav class="navbar navbar-inverse navbar-fixed-top example6">
+		<div class="container">
+		<div class="snow">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar6">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				
+			<a  href="#" ng-click="vm.home()"><img src="images/logo123.png" class="logo"></a>
+			
+			<!--<button class="btn btn-warning menuButton1" type="submit" ng-click="vm.init()"><i class="glyphicon glyphicon-earphone"> Kontakt</i></button>
+			<button class="btn btn-warning menuButton2" type="submit" ng-click="vm.init()"><i class="glyphicon glyphicon-education"> O nama</i></button>-->
+			
+			</div>
+			<div id="navbar6" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#" ng-click="vm.filter('omiljeni')" ng-show="vm.ulogovan == true" class="uloguj">Omiljeni proizvodi</a></li>
+				<li><a href="#" ng-click="vm.dodajProizvod()" ng-show="vm.admin == true"  class="uloguj">Dodaj proizvod</a></li>
+				<li><a ng-if="vm.user==null" href="#" ng-click="vm.login()" class="uloguj">Uloguj se</a></li>
+				<li><a ng-if="vm.user!=null" href="#" ng-click="vm.logout()" class="uloguj">Izloguj se {{vm.username}}</a></li>
+			</ul>
+	
+			<div class="col-sm-3 col-md-3 pull-right pretrazi">
+				<form class="navbar-form" role="search">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Pretraga" ng-model="vm.searchText">
+					<div class="input-group-btn">
+						<button class="btn btn-default btn-search" type="submit" ng-click="vm.init()"><i class="glyphicon glyphicon-search"></i></button>
+					</div>
+				</div>
+				</form>
+			</div>
+			</div>
+
+		</div>
+
+		</nav>
+	
+		<div uib-alert
+		ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')"
+		dismiss-on-timeout="2000"
+		close="closeAlert($index)">{{alert.msg}}</div>
+	
+	
+	<div class="container">
+		<nav aria-label="breadcrumb" role="navigation">
+			<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#"><i class="glyphicon glyphicon-home" ng-click="vm.home()"></i></a></li>
+			<li class="breadcrumb-item" ng-if="vm.kategorija!=null"><a href="#" ng-click="vm.filterKategorije(vm.kategorija)">{{vm.kategorija}}</a></li>
+			<li class="breadcrumb-item" ng-if="vm.proizvod!=null">{{vm.proizvod.naziv}}</li>
+			</ol>
+		</nav>
+		
+		<div class="col-lg-12">
+			<a href="#"><img src="images/akcija.png" width="100%"><br><br></a>
+		</div>
+	
+		<div class="col-lg-2">
+			<div class="list-group">
+				<form align="center">
+						<fieldset>
+							<legend><b>Filtriraj po kategoriji</b> <i class="glyphicon glyphicon-sort"></i></legend>
+								<a ng-repeat="el in vm.listaKategorija" href="#" ng-click="vm.filterKategorije(el)" class="list-group-item">{{el}}</a>
+						</fieldset>
+					</form>
+					<hr>
+			</div>
+			
+			<div class="list-group">
+				<form align="center">
+					<fieldset>
+							<legend><b>Filtriraj po oceni</b> <i class="glyphicon glyphicon-sort-by-order"></i></legend>
+								<a ng-repeat="ocena in vm.listaOcena" href="#" ng-click="vm.filterOcene(ocena)" class="list-group-item">{{ocena}}</a>
+					</fieldset>
+				</form>
+				<hr>
+			</div>
+
+			<div class="list-group">
+				<form align="center">
+						<fieldset>
+							<legend><b>Pretraži po ceni</b> <i class="glyphicon glyphicon-sort"></i></legend>
+								<input class="list-group-item cenaInput" ng-model="vm.cenaOd" placeholder="Cena od">{{cena}}</input>
+								<input class="list-group-item cenaInput" ng-model="vm.cenaDo" placeholder="Cena do">{{cena}}</input><br>
+								<button class="btn btn-danger" ng-click="vm.filterPoCeni()">Pretraži</button>
+						</fieldset>
+				</form>
+				<hr>
+			</div>
+
+			<div class="list-group">
+				<form align="center">
+						<fieldset>
+							<legend><b>Korpa</b> <i class="glyphicon glyphicon-shopping-cart"></i></legend>
+								<div class="list-group-item" ng-repeat="k in vm.korpa"><b>Naziv proizvoda:</b> {{k.proizvod.naziv}} <br><b>Cena proizvoda:</b>  {{k.proizvod.cena}}<br><b>Kolicina proizvoda:</b> {{k.kolicina}}</div>
+								<div class="list-group-item">Suma svih <strong>{{ vm.suma }}</strong></div>
+						</fieldset>
+				</form>
+				<hr>
+			</div>
+			<div class="list-group hidden-xs hidden-sm hidden-md">
+					<a href="#"><img src="images/amdleft.png" width="160px"><br><br></a>
+					
+					<a href="http://expresskuhinja.rs/domaca-kuhinja.html"><img src="images/kuhinja.png" width="160px"><br><br></a>
+			</div>
+		</div>
+		<div class="col-lg-8">
+			<div class="row" ng-if="vm.proizvod==null">
+			<div class="col-sm-4" ng-repeat="el in vm.proizvodi.slice(((vm.currentPage-1)*vm.itemsPerPage), ((vm.currentPage)*vm.itemsPerPage))">
+				<img src="{{el.img}}" style="width:200px; height:170px;"><br>
+					
+				<a ng-click="vm.set_favorit(el)" style="cursor:hand;" uib-tooltip="Postavi u omiljene">
+					<i class="glyphicon" ng-class="{'glyphicon-heart-empty':el.favorit!=true, 'glyphicon-heart':el.favorit==true}"
+					aria-hidden="true"></i></a>
+				
+				<a href="#" ng-click="vm.selektujProizvod(el)">
+					<strong>{{ el.naziv | limitTo: 70 }}{{el.naziv.length > 70 ? '...' : ''}}</strong></a><br>
+				{{el.cena}} din <br>
+				<a href="#" ng-click="vm.filter(el.kategorija)"><small>{{el.kategorija}} </small></a><br>
+			
+				<button type="button" class="btn btn-primary btn-outline btn-xs"
+					ng-click="vm.editProizvod(el)" ng-show="vm.admin == true">Edit</button>
+			</div>
+		</div>
+		<div style="text-align:center;" ng-if="vm.proizvod==null">
+			<ul uib-pagination direction-links="true"
+					total-items="vm.totalItems"
+					ng-model="vm.currentPage"
+					max-size="vm.maxSize"
+					class="pagination-sm"
+					boundary-links="true"
+					num-pages="vm.smallnumPages"></ul>
+		</div>
+		
+		
+		<div class="row" ng-if="vm.proizvod!=null">
+			
+			<a href="#" ng-click="vm.selektujProizvod(vm.proizvod)">
+				<strong>{{ vm.proizvod.naziv | limitTo: 100 }}{{el.naziv.length > 100 ? '...' : ''}}</strong></a><br>
+				
+				<img src="{{vm.proizvod.img}}" style="width:300px; height:320px;"><br>
+				
+				Ocena je: <strong>{{ vm.proizvod.ocena }}</strong><br>
+				
+				Cena je: <strong>{{ vm.proizvod.cena }} din</strong><br>
+	
+				Opis proizvoda: {{ vm.proizvod.opis }}<br> 
+				
+				Trenutna kolicina: <strong>{{vm.proizvod.kolicina}}</strong><br>
+				
+				<form>
+						<fieldset>
+							<legend><b>Izaberite način plaćanja</b></legend>
+							<input type="radio" name="gender" value="male">  <span class="glyphicon glyphicon-btc"> Bitcoin</span><br> 
+							<input type="radio" name="gender" value="male"> <span class="glyphicon glyphicon-credit-card"> Kreditna kartica</span><br>
+							<input type="radio" name="gender" value="male"> <span class="glyphicon glyphicon-euro"> Gotovina</span><br>
+						</fieldset>
+				</form>
+				<hr>
+				
+				<input type="text" ng-model="vm.narucenaKolicina">
+				<button type="button" class="btn btn-primary btn-outline btn-xs" ng-click="vm.upozorenje()">NARUČI</button><br>
+
+		</div>
+			
+			
+		</div>
+		<div class="col-lg-2">
+			<div class="list-group">
+				<form align="center">
+						<fieldset>
+							<legend><b>Sortiraj po ceni</b> <i class="glyphicon glyphicon-sort"></i></legend>
+							<button align="center" type="submit" class="btn btn-sm btn-danger" onclick="vm.sortOpadajuce()" ><span class="glyphicon glyphicon-sort"></span> Opadajuće</button><br><br>
+							<button align="center" type="submit" class="btn btn-sm btn-danger" ><span class="glyphicon glyphicon-sort"></span> Rastuće</button>
+						</fieldset>
+				</form>
+				<hr>
+				<form align="center">
+						<fieldset>
+							<legend><b>Call centar</b> <i class="glyphicon glyphicon-earphone"></i></legend>
+							Mobilni:
+							<b>063/123-456</b><br><br>
+							Fiksni:
+							<b>011/78-39-123
+						</fieldset>
+				</form>
+				<hr>
+				<form action="mailto:mravik.95.milos@gmail.com" method="post" enctype="text/plain" id="forma" align="center" >
+						<legend><b>Pošaljite mejl podršci </b><span class="glyphicon glyphicon-envelope"></span></legend>
+						<button align="center" type="submit" class="btn btn-sm btn-danger" id="posaljiMejl"><span class="glyphicon glyphicon-send"></span> Pošalji</button>
+				</form>
+				<hr>
+			</div>
+			<div class="list-group hidden-xs hidden-sm hidden-md">
+				<a href="#"><img src="images/rate.jpg" width="160px"><br><br></a>
+				<a href="#"><img src="images/reklamacija.png" width="160px"><br><br></a>
+				<a href="#"><img src="images/mis.jpg" width="160px"><br><br></a>
+				<a href="#"><img src="images/tast.jpg" width="160px"><br><br></a>
+				<a href="#"><img src="images/leftnvidia.png" width="160px"><br><br></a>
+			</div>
+			
+		</div>
+		
+		<div class="col-lg-12 socialNetworks">
+			<p>Pratite nas i na društvenim mrežama:</p>
+			<a href="#"><img src="images/fb.png" width="50px" height="50px"></a>
+			<a href="#"><img src="images/yt.png" width="50px" height="50px"></a>
+			<a href="#"><img src="images/ln.png" width="50px" height="50px"></a>
+			<p>Copyright &#169; 2018. Univerzitet Singidunum</p>
+		</div>
+		
+	</div>
+	
+	</div>
+	
+	</div>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		
+		<script src="js/app.js"></script>
+	
+		<script type="text/ng-template" id="myModalContent.html">
+			<div class="modal-header">
+				<h3 class="modal-title" id="modal-title" ng-if="$ctrl.stanje == 'Login'">Uloguj se</h3>
+				<h3 class="modal-title" id="modal-title" ng-if="$ctrl.stanje == 'Registracija'">Registracija</h3>
+			</div>
+			<div class="modal-body" id="modal-body">
+				<section class="login-form" ng-if="$ctrl.stanje == 'Login'">
+					<form class="form-signin">
+						<input type="text" placeholder="Korisnicko ime" required
+						class="form-control input-lg" ng-model="$ctrl.username" />
+						<input type="password" class="form-control input-lg"
+						placeholder="Lozinka" required ng-model="$ctrl.password" />
+						<button class="btn btn-lg btn-primary btn-block" ng-click="$ctrl.login()">Uloguj se</button>
+						<div>
+							<a href="#" ng-click="$ctrl.stanje='Registracija';">Kreiranje naloga</a>
+						</div>
+					</form>
+				</section>
+				<section class="login-form" ng-if="$ctrl.stanje == 'Registracija'">
+					<form class="form-signin">
+						<input type="text" placeholder="Korisnicko ime" required
+						class="form-control input-lg" ng-model="$ctrl.username" />
+						<input type="password" class="form-control input-lg"
+						placeholder="Lozinka" required ng-model="$ctrl.password" />
+						<input type="password" class="form-control input-lg"
+						placeholder="Ponovite lozinku" required ng-model="$ctrl.confirmPassword" />
+						<button class="btn btn-lg btn-primary btn-block" ng-click="$ctrl.register()">Registracija</button>
+						<div>
+							<a href="#" ng-click="$ctrl.stanje='Login';">Uloguj se</a>
+						</div>
+					</form>
+				</section>
+			</div>
+		</script>
+			
+			<script type="text/ng-template" id="editProizvod.html">
+				<div class="modal-header">
+					<h3 class="modal-title" id="modal-title">Edit proizvoda</h3>
+				</div>
+				<div class="modal-body" id="modal-body">
+					<form>
+						<h4><b>Naziv:</b><br></h4> <input class="form-control input-lg" type="text" ng-model="$ctrl.naziv"><br>
+						<h4><b>Kategorija:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.kategorija"><br>
+						<h4><b>Opis:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.opis"><br>
+						<h4><b>Ocena:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.ocena"><br>
+						<h4><b>Količina:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.kolicina"><br>
+						<h4><b>Proizvođač:</b></h4><br><input class="form-control input-lg" type="text" ng-model="$ctrl.proizvodjac"><br>
+						<h4><b>Cena:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.cena"><br>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Odustani</button>
+					<button class="btn btn-primary" type="button" ng-click="$ctrl.save()">Snimi</button>
+				</div>
+			</script>
+			
+			<script type="text/ng-template" id="dodajProizvod.html">
+		    	<div class="modal-header">
+					<h3 class="modal-title" id="modal-title">Dodaj proizvod</h3>
+				</div>
+				<div class="modal-body" id="modal-body">
+					<form>
+						<h4><b>Naziv:</b><br></h4> <input class="form-control input-lg" type="text" ng-model="$ctrl.naziv"><br>
+						<h4><b>Kategorija:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.kategorija"><br>
+						<h4><b>Opis:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.opis"><br>
+						<h4><b>Ocena:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.ocena"><br>
+						<h4><b>Količina:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.kolicina"><br>
+						<h4><b>Proizvođač:</b></h4><br><input class="form-control input-lg" type="text" ng-model="$ctrl.proizvodjac"><br>
+						<h4><b>Cena:</b><br></h4><input class="form-control input-lg" type="text" ng-model="$ctrl.cena"><br>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Odustani</button>
+					<button class="btn btn-primary" type="button" ng-click="$ctrl.save()">Snimi</button>
+				</div> 
+			</script>
+
+
+	</body>
+	
+</html>
+	

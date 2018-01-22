@@ -1,0 +1,221 @@
+[
+    {
+        "naziv": "Procesor AMD Ryzen 5 1600 3.2 GHz (3.6 GHz) BOX sa Wraith Spire cooler-om AMD® AM4, AMD® Ryzen 5, 6, 12", 
+        "kategorija": "Procesori", 
+        "img": "images/procesor1.png", 
+		"opis": "Podnožje: AMD® Ryzen 5,Tip procesora: AMD® Ryzen 5, Broj jezgara: 6, Threads: 12", 
+		"ocena": 5, 
+        "kolicina": 10, 
+        "proizvodjac": "AMD", 
+        "cena": 26990, 
+        "id": 1
+    }, 
+    {
+        "naziv": "Procesor AMD Ryzen 3 1200 3.1 GHz (3.4 GHz) sa Wraith Stealth cooler-om AMD® AM4, AMD® Ryzen 3, 4, 4", 
+        "kategorija": "Procesori", 
+        "img": "images/procesor2.png", 
+		"opis": "Podnožje: AMD® AM4, Tip procesora: AMD® Ryzen 3, Broj jezgara: 4, Threads: 4",
+		"ocena": 4, 
+        "kolicina": 10, 
+        "proizvodjac": "AMD", 
+        "cena": 13990, 
+        "id": 2
+    }, 
+    {
+        "naziv": "Procesor INTEL Core i5-8400 2.8GHz (4.0GHz) Intel® 1151 (8. gen.), Intel® Core™ i5, 6, 6", 
+        "kategorija": "Procesori", 
+        "img": "images/procesor3.png", 
+		"opis": "Podnožje: Intel® 1151 (8. gen.), Tip procesora: Intel® Core™ i5, Broj jezgara: 6, Threads: 6", 
+		"ocena": 4,
+        "kolicina": 6, 
+        "proizvodjac": "Intel", 
+        "cena": 25990, 
+        "id": 3
+    }, 
+    {
+        "naziv": "Matična ploča ASUS MB - SOCKET 1151 - H110M-R/C/SI Intel, Intel® 1151, Intel® H110, Micro ATX",		
+        "kategorija": "Matične ploce", 
+        "img": "images/ploca1.png", 
+		"opis": "Podnožje: Intel® 1151, Tip procesora: Intel, Čipset: Intel® H110, Format ploče: Micro ATX",
+		"ocena": 3,		
+        "kolicina": 7, 
+        "proizvodjac": "ASUS", 
+        "cena": 6390, 
+        "id": 4
+    }, 
+    {
+        "naziv": "Matična ploča GIGABYTE Z370P D3 Intel, Intel® 1151 (8. gen.), Intel® Z370, ATX", 
+        "kategorija": "Matične ploce", 
+        "img": "images/ploca2.jpg", 
+		"opis": "Podnožje: Intel® 1151, Tip procesora: Intel, Čipset: Intel® Z370, Format ploče: ATX", 
+		"ocena": 3,
+        "kolicina": 4, 
+        "proizvodjac": "GIGABYTE", 
+        "cena": 14990, 
+        "id": 5
+    }, 
+    {
+        "naziv": "Memorija HYPERX 4GB DDR4 FURY Black 2400MHz CL15 - HX424C15FB/4 DDR4, 4GB, 2400Mhz, 1.2V", 
+        "kategorija": "Memorije", 
+        "img": "images/mem1.png", 
+		"opis": "Tip: DDR4, Kapacitet: 4GB, Maksimalna frekvencija: 2400Mhz, Voltaža: 1.2V",
+		"ocena": 4,		
+        "kolicina": 15, 
+        "proizvodjac": "Kingston", 
+        "cena": 6990, 
+        "id": 6
+    }, 
+    {
+        "naziv": "Memorija HYPERX Predator Black 8GB DDR4 3000MHz CL15 - HX430C15PB3/8 DDR4, 8GB, 3000Mhz, 1.35V", 
+        "kategorija": "Memorije", 
+        "img": "images/mem2.png", 
+		"opis": "Tip: DDR4, Kapacitet: 8GB, Maksimalna frekvencija: 3000Mhz, Voltaža: 1.35V", 
+		"ocena": 4,
+        "kolicina": 12, 
+        "proizvodjac": "Kingston", 
+        "cena": 14990, 
+        "id": 7
+    }, 
+    {
+        "naziv": "Grafička karta ASUS nVidia GeForce GTX 1050 Phoenix 2GB GDDR5 128bit - PH-GTX1050-2G PCI Express 3.0, Nvidia, Nvidia GeForce GTX 1050, 2GB", 
+        "kategorija": "Grafičke karte", 
+        "img": "images/gpu1.png", 
+		"opis": "Interfejs: PCI Express 3.0, Proizvođač čipa: Nvidia, GPU: Nvidia GeForce GTX 1050, Količina memorije: 2GB",
+		"ocena": 2,		
+        "kolicina": 24, 
+        "proizvodjac": "ASUS", 
+        "cena": 16990, 
+        "id": 8
+    }, 
+    {
+        "naziv": "Grafička karta GIGABYTE nVidia GeForce GT 1030 OC 2GB DDR5 64bit - GV-N1030OC-2GI Nvidia, Nvidia GeForce GT 1030, 2GB", 
+        "kategorija": "Grafičke karte", 
+        "img": "images/gpu2.png", 
+		"opis": "Interfejs: PCI Express 3.0, Proizvođač čipa: Nvidia, GPU: Nvidia GeForce GT 1030, Količina memorije: 2GB", 
+		"ocena": 4,	
+        "kolicina": 17, 
+        "proizvodjac": "GIGABYTE", 
+        "cena": 10990, 
+        "id": 9
+    }, 
+    {
+        "naziv": "Hard disk SEAGATE 1TB, 3.5', SATA III, 64MB, 7200rpm BarraCuda Compute - ST1000DM010 Interni, 3.5', SATA III, 1TB HDD", 
+        "kategorija": "Hard diskovi", 
+        "img": "images/hdd1.png", 
+		"opis": "Tip: Interni, Format: 3.5', Konekcija: SATA III, Kapacitet: 1TB", 
+		"ocena": 1,
+        "kolicina": 13, 
+        "proizvodjac": "SEAGATE", 
+        "cena": 6490, 
+        "id": 10
+    },
+	{
+        "naziv": "Hard disk WD 1TB SATA III, 64MB, 3.5', 7200rpm, Caviar Blue - WD10EZEX Interni, 3.5', SATA III, 1TB HDD", 
+        "kategorija": "Hard diskovi", 
+        "img": "images/hdd2.png", 
+		"opis": "Tip: Interni, Format: 3.5', Konekcija: SATA III, Kapacitet: 1TB",
+		"ocena": 4,
+        "kolicina": 12, 
+        "proizvodjac": "Western Digital", 
+        "cena": 6490, 
+        "id": 11
+    },
+	{
+        "naziv": "SAMSUNG SSD 250GB, 2.5', SATA III, 850 Evo Series - MZ-75E250B 2.5', SATA III, 250GB, do 540 MB/s", 
+        "kategorija": "SSD", 
+        "img": "images/ssd1.png", 
+		"opis": "Interfejs: SATA III, Format: 2.5', Brzina čitanja: do 540MB/s, Kapacitet: 250GB",
+		"ocena": 2,
+        "kolicina": 12, 
+        "proizvodjac": "Western Digital", 
+        "cena": 6490, 
+        "id": 12
+    },
+	{
+        "naziv": "KINGSTON SSDNow 240GB, 2.5', SATA III, UV400 Series - SUV400S37/240G 2.5'', SATA III, 240GB, do 550 MB/s", 
+        "kategorija": "SSD", 
+        "img": "images/ssd2.png", 
+		"opis": "Interfejs: SATA III, Format: 2.5', Brzina čitanja: do 550MB/s, Kapacitet: 240GB",
+		"ocena": 2,
+        "kolicina": 12, 
+        "proizvodjac": "Western Digital", 
+        "cena": 6490, 
+        "id": 13
+    },
+	{
+        "naziv": "COOLER MASTER napajanje MasterWatt Lite 600W – MPX-6001-ACABW-EU Standardno, ATX (PS2) , 600W, ATX 12V v.2.31", 
+        "kategorija": "Napajanje", 
+        "img": "images/nap1.png", 
+		"opis": "Tip: Standardno, Oblik(Form factor): ATX(PS2), Izlazna snaga: 660W, Standard: ATX 12V v.2.31",
+		"ocena": 3,
+        "kolicina": 5, 
+        "proizvodjac": "COOLER MASTER", 
+        "cena": 8990, 
+        "id": 14
+    },
+	{
+        "naziv": "ANTEC napajanje 700W VP700P Standardno, ATX (PS2) , 700W, ATX 12V v.2.4", 
+        "kategorija": "Napajanje", 
+        "img": "images/nap2.png", 
+		"opis": "Tip: Standardno, Oblik(Form factor): ATX(PS2), Izlazna snaga: 700W, Standard: ATX 12V v.2.4", 
+        "kolicina": 2, 
+        "proizvodjac": "ANTEC", 
+        "cena": 10990, 
+        "id": 15
+    },
+	{
+        "naziv": "MS INDUSTRIAL kućište HULK Midi Tower, Micro-ATX, Mini-ITX, ATX, Bez napajanja", 
+        "kategorija": "Kućišta", 
+        "img": "images/kuc1.png", 
+		"opis": "Tip: Midi Tower, Kompatibilnost: Micro-ATX, Mini-ITX, ATX, Napajanje: bez napajanja",
+		"ocena": 2,
+        "kolicina": 2, 
+        "proizvodjac": "MS INDUSTRIAL", 
+        "cena": 10990, 
+        "id": 16
+    },
+	{
+        "naziv": "MS INDUSTRIAL kućište DARK SHADOW Midi Tower, Micro-ATX, Mini-ITX, ATX, Bez napajanja, Crna", 
+        "kategorija": "Kućišta", 
+        "img": "images/kuc2.png", 
+		"opis": "Tip: Midi Tower, Kompatibilnost: Micro-ATX, Mini-ITX, ATX, Napajanje: bez napajanja",
+		"ocena": 5,
+        "kolicina": 4, 
+        "proizvodjac": "MS INDUSTRIAL",
+        "cena": 5490, 
+        "id": 17
+    },
+	{
+        "naziv": "Optički uređaj ASUS Eksterni DVD-RW ZenDrive U7M (Crni) - SDRW-08U7M-U USB +2xMDisc (u kutiji) Eksterni, DVD rezač", 
+        "kategorija": "Optički uređaji", 
+        "img": "images/ou1.png", 
+		"opis": "Tip: Eksterni, Vrsta: DVD rezač", 
+		"ocena": 3,
+        "kolicina": 43, 
+        "proizvodjac": "ASUS",
+        "cena": 4490, 
+        "id": 18
+    },
+	{
+        "naziv": "Optički uređaj LG DVD-RW SATA GH24NSD1 (Black) Interni, DVD rezač", 
+        "kategorija": "Optički uređaji", 
+        "img": "images/ou2.png", 
+		"opis": "Tip: Interni, Vrsta: DVD rezač", 
+		"ocena": 3,
+        "kolicina": 34, 
+        "proizvodjac": "LG",
+        "cena": 1990, 
+        "id": 19
+    },
+	{
+        "naziv": "COOLER MASTER Seidon 120V V3 Plus CPU Water Cooler - RL-S12V-22PR-R1 CPU, Vodeno hlađenje, 120 x 120 x 25 mm", 
+        "kategorija": "Hladnjaci i oprema", 
+        "img": "images/ho1.png", 
+		"opis": "Tip: CPU, Tip hlađenja: Vodeno hlađenje, Ventilator: 120 x 120 x 25mm",
+		"ocena": 4,
+        "kolicina": 32, 
+        "proizvodjac": "COOLER MASTER",
+        "cena": 7490, 
+        "id": 20
+    }
+]
